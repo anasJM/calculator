@@ -46,8 +46,10 @@ let operatorArray = ["+", "-", "*", "/"];
 let operationCount = 0;
 
 const clearButton = document.getElementById("btn-clear");
+const deleteButton = document.getElementById("btn-delete");
 const display = document.getElementById("display");
 
+const pointButton = document.getElementById("btn-point");
 const number0 = document.getElementById("btn-number-0");
 const number1 = document.getElementById("btn-number-1");
 const number2 = document.getElementById("btn-number-2");
@@ -68,9 +70,31 @@ const equalButton = document.getElementById("btn-equal");
 // clear the display
 
 clearButton.addEventListener("click", () => {
-    console.log(array);
     array = [];
     display.textContent = 0
+    console.log(array);
+});
+
+deleteButton.addEventListener("click", () => {
+    
+    if (array.length === 1) {
+        clearButton.click();
+    } else {
+        array.pop();
+        console.log(array);
+    }
+    
+    if (array.includes("+")) {
+        display.textContent = array.slice(array.indexOf("+") + 1).join('');
+    } else if (array.includes("-")) {
+        display.textContent = array.slice(array.indexOf("-") + 1).join('');
+    } else if (array.includes("*")) {
+        display.textContent = array.slice(array.indexOf("*") + 1).join('');
+    } else if (array.includes("/")) {
+        display.textContent = array.slice(array.indexOf("/") + 1).join('');
+    } else {
+        display.textContent = array.join('');
+    }
 });
 
 
@@ -80,6 +104,19 @@ clearButton.addEventListener("click", () => {
 
 
 
+
+
+// click event for point
+
+pointButton.addEventListener("click", () => {
+    
+    console.log(array);
+    
+    if (array.length !== 0 && array[array.length - 1] !== "+" && array[array.length - 1] !== "-" && array[array.length - 1] !== "*" && array[array.length - 1] !== "/" && array[array.length - 1] !== ".") {
+        array.push(".");
+        console.log(array)
+    }
+});
 
 //click event for numbers digits
 
@@ -353,7 +390,7 @@ multiplyButton.addEventListener("click", () => {
         array.push("*");
     }
 
-    if (array[array.length-1] !== "*") {
+    if (array[array.length-1] !== "*" && array.length !== 0) {
         array.push("*");
         console.log(array);
     }
@@ -365,7 +402,7 @@ divideButton.addEventListener("click", () => {
         array.push("/");
     }
 
-    if (array[array.length-1] !== "/") {
+    if (array[array.length-1] !== "/" && array.length !== 0) {
         array.push("/");
         console.log(array);
     }
@@ -445,3 +482,76 @@ equalButton.addEventListener("click", (event) => {
         }
     }
 });
+
+
+
+
+// key event listener
+
+document.addEventListener("keydown", (event) => {
+    // operators
+    if (event.key === "+") {
+        addButton.click();
+    }
+    if (event.key === "-") {
+        substractButton.click();
+    }
+    if (event.key === "*") {
+        multiplyButton.click();
+    }
+    if (event.key === "/") {
+        divideButton.click();
+    }
+
+    // numbers
+    if (event.key === "0") {
+        number0.click();
+    }
+    if (event.key === "1") {
+        number1.click();
+    }
+    if (event.key === "2") {
+        number2.click();
+    }
+    if (event.key === "3") {
+        number3.click();
+    }
+    if (event.key === "4") {
+        number4.click();
+    }
+    if (event.key === "5") {
+        number5.click();
+    }
+    if (event.key === "6") {
+        number6.click();
+    }
+    if (event.key === "7") {
+        number7.click();
+    }
+    if (event.key === "8") {
+        number8.click();
+    }
+    if (event.key === "9") {
+        number9.click();
+    }
+
+    // backspace
+    if (event.key === "Backspace") {
+        deleteButton.click();
+    }
+
+    // equal using enter key
+    if (event.key === "Enter") {
+        equalButton.click();
+    }
+
+    // point key
+    if (event.key === ".") {
+        pointButton.click();
+    }
+
+    // clear
+    if (event.key === "Delete") {
+        clearButton.click();
+    }
+})
