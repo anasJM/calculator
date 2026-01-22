@@ -42,6 +42,8 @@ let operator;
 let firstNumber;
 let secondNumber;
 let array = [];
+let operatorArray = ["+", "-", "*", "/"];
+let operationCount = 0;
 
 const clearButton = document.getElementById("btn-clear");
 const display = document.getElementById("display");
@@ -71,6 +73,14 @@ clearButton.addEventListener("click", () => {
     display.textContent = 0
 });
 
+
+
+
+
+
+
+
+
 //click event for numbers digits
 
 number0.addEventListener("click", () => {
@@ -85,6 +95,12 @@ number0.addEventListener("click", () => {
         display.textContent = array.slice(array.indexOf("*") + 1).join('');
     } else if (array.includes("/")) {
         display.textContent = array.slice(array.indexOf("/") + 1).join('');
+    } else if (operationCount != 0) {
+        array = [];
+        array.push(0);
+        operationCount = 0;
+        display.textContent = array.join('');
+        console.log(array);
     } else {
         display.textContent = array.join('');
     }
@@ -102,6 +118,12 @@ number1.addEventListener("click", () => {
         display.textContent = array.slice(array.indexOf("*") + 1).join('');
     } else if (array.includes("/")) {
         display.textContent = array.slice(array.indexOf("/") + 1).join('');
+    } else if (operationCount != 0) {
+        array = [];
+        array.push(1);
+        operationCount = 0;
+        display.textContent = array.join('');
+        console.log(array);
     } else {
         display.textContent = array.join('');
     }
@@ -119,6 +141,12 @@ number2.addEventListener("click", () => {
         display.textContent = array.slice(array.indexOf("*") + 1).join('');
     } else if (array.includes("/")) {
         display.textContent = array.slice(array.indexOf("/") + 1).join('');
+    } else if (operationCount != 0) {
+        array = [];
+        array.push(2);
+        operationCount = 0;
+        display.textContent = array.join('');
+        console.log(array);
     } else {
         display.textContent = array.join('');
     }
@@ -136,6 +164,12 @@ number3.addEventListener("click", () => {
         display.textContent = array.slice(array.indexOf("*") + 1).join('');
     } else if (array.includes("/")) {
         display.textContent = array.slice(array.indexOf("/") + 1).join('');
+    } else if (operationCount != 0) {
+        array = [];
+        array.push(3);
+        operationCount = 0;
+        display.textContent = array.join('');
+        console.log(array);
     } else {
         display.textContent = array.join('');
     }
@@ -153,6 +187,12 @@ number4.addEventListener("click", () => {
         display.textContent = array.slice(array.indexOf("*") + 1).join('');
     } else if (array.includes("/")) {
         display.textContent = array.slice(array.indexOf("/") + 1).join('');
+    } else if (operationCount != 0) {
+        array = [];
+        array.push(4);
+        operationCount = 0;
+        display.textContent = array.join('');
+        console.log(array);
     } else {
         display.textContent = array.join('');
     }
@@ -170,6 +210,12 @@ number5.addEventListener("click", () => {
         display.textContent = array.slice(array.indexOf("*") + 1).join('');
     } else if (array.includes("/")) {
         display.textContent = array.slice(array.indexOf("/") + 1).join('');
+    } else if (operationCount != 0) {
+        array = [];
+        array.push(5);
+        operationCount = 0;
+        display.textContent = array.join('');
+        console.log(array);
     } else {
         display.textContent = array.join('');
     }
@@ -187,6 +233,12 @@ number6.addEventListener("click", () => {
         display.textContent = array.slice(array.indexOf("*") + 1).join('');
     } else if (array.includes("/")) {
         display.textContent = array.slice(array.indexOf("/") + 1).join('');
+    } else if (operationCount != 0) {
+        array = [];
+        array.push(6);
+        operationCount = 0;
+        display.textContent = array.join('');
+        console.log(array);
     } else {
         display.textContent = array.join('');
     }
@@ -199,11 +251,17 @@ number7.addEventListener("click", () => {
     if (array.includes("+")) {
         display.textContent = array.slice(array.indexOf("+") + 1).join('');
     } else if (array.includes("-")) {
-        display.textContent = array.slice(array.indexOf("-") + 1);
+        display.textContent = array.slice(array.indexOf("-") + 1).join('');
     } else if (array.includes("*")) {
-        display.textContent = array.slice(array.indexOf("*") + 1);
+        display.textContent = array.slice(array.indexOf("*") + 1).join('');
     } else if (array.includes("/")) {
-        display.textContent = array.slice(array.indexOf("/") + 1);
+        display.textContent = array.slice(array.indexOf("/") + 1).join('');
+    } else if (operationCount != 0) {
+        array = [];
+        array.push(7);
+        operationCount = 0;
+        display.textContent = array.join('');
+        console.log(array);
     } else {
         display.textContent = array.join('');
     }
@@ -216,11 +274,17 @@ number8.addEventListener("click", () => {
     if (array.includes("+")) {
         display.textContent = array.slice(array.indexOf("+") + 1).join('');
     } else if (array.includes("-")) {
-        display.textContent = array.slice(array.indexOf("-") + 1);
+        display.textContent = array.slice(array.indexOf("-") + 1).join('');
     } else if (array.includes("*")) {
-        display.textContent = array.slice(array.indexOf("*") + 1);
+        display.textContent = array.slice(array.indexOf("*") + 1).join('');
     } else if (array.includes("/")) {
-        display.textContent = array.slice(array.indexOf("/") + 1);
+        display.textContent = array.slice(array.indexOf("/") + 1).join('');
+    } else if (operationCount != 0) {
+        array = [];
+        array.push(8);
+        operationCount = 0;
+        display.textContent = array.join('');
+        console.log(array);
     } else {
         display.textContent = array.join('');
     }
@@ -229,55 +293,109 @@ number8.addEventListener("click", () => {
 number9.addEventListener("click", () => {
     array.push(9);
     console.log(array);
-    display.textContent = array.join('');
+    
+    if (array.includes("+")) {
+        display.textContent = array.slice(array.indexOf("+") + 1).join('');
+    } else if (array.includes("-")) {
+        display.textContent = array.slice(array.indexOf("-") + 1).join('');
+    } else if (array.includes("*")) {
+        display.textContent = array.slice(array.indexOf("*") + 1).join('');
+    } else if (array.includes("/")) {
+        display.textContent = array.slice(array.indexOf("/") + 1).join('');
+    } else if (operationCount != 0) {
+        array = [];
+        array.push(9);
+        operationCount = 0;
+        display.textContent = array.join('');
+        console.log(array);
+    } else {
+        display.textContent = array.join('');
+    }
 });
+
+
+
+
+
+
+
+
 
 //click event for operatores digits
 
 addButton.addEventListener("click", () => {
+    if (array.includes("+") || array.includes("-") || array.includes("*") || array.includes("/")) {
+        equalButton.click();
+        array.push("+");
+    }
+
     if (array[array.length-1] !== "+") {
         array.push("+");
         console.log(array);
-        // display.textContent = array.join('');
     }
 });
 
 substractButton.addEventListener("click", () => {
+    if (array.includes("+") || array.includes("-") || array.includes("*") || array.includes("/")) {
+        equalButton.click();
+        array.push("-");
+    }
+
     if (array[array.length-1] !== "-") {
         array.push("-");
         console.log(array);
-        // display.textContent = array.join('');
     }
 });
 
 multiplyButton.addEventListener("click", () => {
+    if (array.includes("+") || array.includes("-") || array.includes("*") || array.includes("/")) {
+        equalButton.click();
+        array.push("*");
+    }
+
     if (array[array.length-1] !== "*") {
         array.push("*");
         console.log(array);
-        // display.textContent = array.join('');
     }
 });
 
 divideButton.addEventListener("click", () => {
+    if (array.includes("+") || array.includes("-") || array.includes("*") || array.includes("/")) {
+        equalButton.click();
+        array.push("/");
+    }
+
     if (array[array.length-1] !== "/") {
         array.push("/");
         console.log(array);
-        // display.textContent = array.join('');
     }
 });
 
+
+
+
+
+
+
+
+
+
 //equal '=' button to calculate the numbers
 
-equalButton.addEventListener("click", () => {
+equalButton.addEventListener("click", (event) => {
     let string;
     let numbersArray
     let result;
 
+    if (event.isTrusted) {
+        operationCount++;
+    }
+
     if (array.includes("+")) {
         string = array.join('');
         numbersArray = string.split('+');
-        firstNumber = parseInt(numbersArray[0]);
-        secondNumber = parseInt(numbersArray[1]);
+        firstNumber = Number(numbersArray[0]);
+        secondNumber = Number(numbersArray[1]);
         operator = "+";
         result = operate(firstNumber, operator, secondNumber);
         array = [result];
@@ -288,8 +406,8 @@ equalButton.addEventListener("click", () => {
     if (array.includes("-")) {
         string = array.join('');
         numbersArray = string.split('-');
-        firstNumber = parseInt(numbersArray[0]);
-        secondNumber = parseInt(numbersArray[1]);
+        firstNumber = Number(numbersArray[0]);
+        secondNumber = Number(numbersArray[1]);
         operator = "-";
         result = operate(firstNumber, operator, secondNumber);
         array = [result];
@@ -300,8 +418,8 @@ equalButton.addEventListener("click", () => {
     if (array.includes("*")) {
         string = array.join('');
         numbersArray = string.split('*');
-        firstNumber = parseInt(numbersArray[0]);
-        secondNumber = parseInt(numbersArray[1]);
+        firstNumber = Number(numbersArray[0]);
+        secondNumber = Number(numbersArray[1]);
         operator = "*";
         result = operate(firstNumber, operator, secondNumber);
         array = [result];
@@ -310,14 +428,20 @@ equalButton.addEventListener("click", () => {
     }
 
     if (array.includes("/")) {
-        string = array.join('');
-        numbersArray = string.split('/');
-        firstNumber = parseInt(numbersArray[0]);
-        secondNumber = parseInt(numbersArray[1]);
-        operator = "/";
-        result = operate(firstNumber, operator, secondNumber);
-        array = [result];
-        display.textContent = array[0];
-        console.log(array);
+        if (array[array.indexOf("/") + 1] == 0) {
+            console.log("you can't divide by 0");
+            display.textContent = "Error!"
+            array = [];
+        } else {
+            string = array.join('');
+            numbersArray = string.split('/');
+            firstNumber = Number(numbersArray[0]);
+            secondNumber = Number(numbersArray[1]);
+            operator = "/";
+            result = operate(firstNumber, operator, secondNumber);
+            array = [result];
+            display.textContent = array[0];
+            console.log(array);
+        }
     }
 });
